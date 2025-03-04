@@ -27,6 +27,15 @@ class PERSOON {
         return this.achternaam;
     }
 
+    public String getEmail()
+    {
+        return this.email;
+    }
+
+    public void setEmail(String email)
+    {
+        this.email = email;
+    }
     public void makePersoon()
     {
         Scanner userInput = new Scanner(System.in);
@@ -37,11 +46,9 @@ class PERSOON {
         System.out.println("voer de achternaam in");
         String achternaam = userInput.nextLine();
     }
-
-    public String toString()
+    public void display()
     {
         System.out.println(this.voornaam + this.achternaam);
-        return null;
     }
 }
 
@@ -124,6 +131,18 @@ public class E1 {
 
     public static void main(String[] args) {
 
-        System.out.println("testing the code...");
+        // to test the code were making to objects of the class person
+
+        PERSOON persoon1 = new PERSOON();
+        persoon1.setVoornaam("mooien");
+        persoon1.setAchternaam("el morabit");
+        persoon1.setEmail("nsrddyn@gmail.com");
+
+        PERSOON persoon2 = new PERSOON();
+        persoon2.setVoornaam("lelijk");
+        persoon2.setAchternaam("pletinck");
+        persoon2.setEmail("abdellahea@gmail.com");
+
+        System.out.println(persoon1.toString() + persoon2.toString());
     }
 }
