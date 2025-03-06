@@ -3,114 +3,88 @@ import java.util.Scanner;
 
 class PERSOON {
 
+    public static int persoonCount;
+
     private String voornaam;
     private String achternaam;
     private String email;
 
-    public void setVoornaam(String voornaam)
-    {
+    public void setVoornaam(String voornaam) {
         this.voornaam = voornaam;
     }
-
-    public String getVoornaam()
-    {
+    public String getVoornaam() {
         return this.voornaam;
     }
 
-    public void setAchternaam(String achternaam)
-    {
-        this.achternaam = achternaam;
-    }
+    public void setAchternaam(String achternaam) {this.achternaam = achternaam;}
+    public String getAchternaam() {return this.achternaam;}
 
-    public String getAchternaam()
-    {
-        return this.achternaam;
-    }
-
-    public String getEmail()
-    {
-        return this.email;
-    }
-
-    public void setEmail(String email)
-    {
+    public String getEmail() {return this.email;}
+    public void setEmail(String email) {
         this.email = email;
     }
-    public void makePersoon()
-    {
-        Scanner userInput = new Scanner(System.in);
 
-        System.out.println("voer de voornaam in");
-        String voornaam = userInput.nextLine();
+    PERSOON(String voornaam, String achternaam, String email) {
+        this.voornaam = voornaam;
+        this.achternaam = achternaam;
+        this.email = email;
 
-        System.out.println("voer de achternaam in");
-        String achternaam = userInput.nextLine();
+        persoonCount++;
     }
-    public void display()
-    {
-        System.out.println(this.voornaam + this.achternaam);
+
+    PERSOON() {
+        persoonCount++;
     }
 }
 
 class ADRES extends PERSOON {
 
     private String straatNaam;
+    private int huisNummer;
+    private int bus;
+    private int postcode;
+    private String woonPlaats;
 
     public String getStraatNaam() {
         return this.straatNaam;
     }
-
     public void setStraatNaam(String newStraatNaam) {
         this.straatNaam = newStraatNaam;
     }
 
-    private int huisNummer;
-
     public int getHuisNummer() {
         return this.huisNummer;
     }
-
     public void setHuisNummer(int newHuisNummer) {
         this.huisNummer = newHuisNummer;
     }
 
-    private int bus;
-
     public int getBus() {
         return this.bus;
     }
-
     public void setBus(int newBus) {
         this.bus = newBus;
     }
 
-    private int postcode;
-
     public int getPostcode() {
         return postcode;
     }
-
     public void setPostcode(int postcode) {
-        if (postcode >= 999 && postcode <= 9999)
-        {
+        if (postcode >= 999 && postcode <= 9999) {
             this.postcode = postcode;
-        } else{
+        } else {
             this.postcode = 9999;
         }
     }
 
-    private String woonPlaats;
-
     public String getWoonPlaats() {
         return woonPlaats;
     }
-
     public void setWoonPlaats(String woonPlaats) {
         this.woonPlaats = woonPlaats;
     }
 
-    public void drukGegevensAf()
-    {
+    public void drukGegevensAf() {
         System.out.println(this.straatNaam);
         System.out.println(this.huisNummer);
         System.out.println(this.bus);
@@ -118,12 +92,18 @@ class ADRES extends PERSOON {
         System.out.println(woonPlaats);
     }
 
-    public ADRES(String straatnaam, int huisnummer, int bus, int postcode, String woonPlaats) {
+    ADRES(String straatnaam, int huisnummer, int bus, int postcode, String woonPlaats) {
+        super();
         this.straatNaam = straatnaam;
         this.huisNummer = huisnummer;
         this.bus = bus;
         this.postcode = postcode;
         this.woonPlaats = woonPlaats;
+    }
+
+    ADRES()
+    {
+        super();
     }
 }
 
@@ -131,18 +111,19 @@ public class E1 {
 
     public static void main(String[] args) {
 
-        // to test the code were making to objects of the class person
+       ADRES persoon1 = new ADRES();
+       persoon1.setVoornaam("THOMAS");
+       System.out.println(persoon1.getVoornaam());
 
-        PERSOON persoon1 = new PERSOON();
-        persoon1.setVoornaam("mooien");
-        persoon1.setAchternaam("el morabit");
-        persoon1.setEmail("nsrddyn@gmail.com");
+        ADRES persoon2 = new ADRES();
+        persoon2.setVoornaam("HANS");
+        System.out.println(persoon2.getVoornaam());
 
-        PERSOON persoon2 = new PERSOON();
-        persoon2.setVoornaam("lelijk");
-        persoon2.setAchternaam("pletinck");
-        persoon2.setEmail("abdellahea@gmail.com");
+        ADRES persoon3 = new ADRES();
+        persoon3.setVoornaam("SIMBA");
+        System.out.println(persoon3.getVoornaam());
 
-        System.out.println(persoon1.toString() + persoon2.toString());
+       System.out.println(PERSOON.persoonCount);
+
     }
 }
