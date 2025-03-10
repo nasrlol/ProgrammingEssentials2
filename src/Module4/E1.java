@@ -1,5 +1,4 @@
 package Module4;
-import java.util.Scanner;
 
 class PERSOON {
 
@@ -69,6 +68,7 @@ class ADRES extends PERSOON {
     public int getPostcode() {
         return postcode;
     }
+
     public void setPostcode(int postcode) {
         if (postcode >= 999 && postcode <= 9999) {
             this.postcode = postcode;
@@ -80,6 +80,7 @@ class ADRES extends PERSOON {
     public String getWoonPlaats() {
         return woonPlaats;
     }
+
     public void setWoonPlaats(String woonPlaats) {
         this.woonPlaats = woonPlaats;
     }
